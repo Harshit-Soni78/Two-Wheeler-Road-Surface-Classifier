@@ -25,7 +25,7 @@ def split_csv(file_path, output_dir, chunk_size=250, file_index=1):
     print(f"Splitting complete for {file_path}. Any remaining rows (less than 250) have been discarded.")
 
 # Usage example
-input_folder = 'F:/Study/sem 6/Mini Project/TWRSC_2/Two-Wheeler-Road-Surface-Classifier-main/04 Preprocessed Data/FInal Data/Kanker'  # Replace with your folder containing large CSV files
+input_folder = 'F:/Study/sem 6/Mini Project/TWRSC_2/Two-Wheeler-Road-Surface-Classifier-main/04 Preprocessed Data/Final Data/Kanker'  # Replace with your folder containing large CSV files
 output_folder = 'F:/Study/sem 6/Mini Project/Abhijeet_Preprocessed_Data/kanker_processed'  # Replace with your desired output folder
 os.makedirs(output_folder, exist_ok=True)
 
