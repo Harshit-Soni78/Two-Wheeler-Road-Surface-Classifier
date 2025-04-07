@@ -25,7 +25,7 @@ def split_csv(file_path, output_dir, chunk_size=250, file_index=1):
     print(f"Splitting complete for {file_path}. Any remaining rows (less than 250) have been discarded.")
 
 # Usage example
-input_folder= "FInal_Data/Kanker"  # Input file
+input_folder= "Final_Data/Kanker"  # Input file
 output_folder = "Ankit_preprocesed/Kanker" 
 os.makedirs(output_folder, exist_ok=True)
 
