@@ -61,6 +61,7 @@ We can use MIT App Inventor for this part.
 </details>
 
 ---
+
 ---
 
 <details>
@@ -79,38 +80,62 @@ We can use MIT App Inventor for this part.
 </details>
 
 ---
+
 ---
 
 <details>
   <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">3. Dataset Labelling and Pre-processing</summary>
-Comming Soon
+
+- Label the sensor readings with their corresponding road type or event (e.g., speed breaker).
+- Pre-process the data:
+  - Normalize sensor readings to bring them to the same scale.
+  - Segment the data into 200 to 300 rows windows.
+  - Compute useful features (e.g., mean, variance, FFT of the signals).
+
 </details>
 
 ---
+
 ---
 
 <details>
   <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">4. Model Architecture</summary>
-Comming Soon
+
+- Use an **LSTM (Long Short-Term Memory)** network because it excels in time-series data.
+- Basic architecture:
+  - Input layer: Accepts 3-second sensor data.
+  - LSTM layers: Extract temporal patterns.
+  - Dense layer: Classifies data into the 5 categories.
+
 </details>
 
 ---
+
 ---
 
 <details>
   <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">5. Model Training</summary>
-Comming Soon
+
+- Train the LSTM on your dataset with appropriate train-validation splits.
+- Use metrics like accuracy and F1-score to evaluate performance.
+
 </details>
 
 ---
+
 ---
 
 <details>
   <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">6. Model Optimization & Comparison</summary>
-Comming Soon
+
+- Experiment with hyperparameters (e.g., learning rate, number of LSTM layers).
+- Compare models with varying feature sets and pre-processing techniques.
+- Add dropout layers to prevent overfitting.
+
 </details>
 
 ---
+
 ---
 
 <details>
@@ -119,6 +144,7 @@ Comming Soon
 </details>
 
 ---
+
 ---
 
 <details>
@@ -127,6 +153,7 @@ Comming Soon
 </details>
 
 ---
+
 ---
 
 <details>
@@ -135,4 +162,5 @@ Comming Soon
 </details>
 
 ---
+
 ---
