@@ -1,12 +1,12 @@
 # Two-Wheeler Road Surface Classifier
 
-Two-Wheeler Road Surface Classifier is an Android app that captures accelerometer and gyroscope data to classify road conditions for two-wheeler rides. It collects motion data and trains an LSTM model to classify surfaces like Kankar, Bitumen, and Concrete roads, plus speed breakers. The dataset can also help detect rash driving, enabling real-time safety alerts. 🚀🏍️
+Two-Wheeler Road Surface Classifier is an Android app that captures accelerometer and gyroscope data to classify road conditions for two-wheeler rides. It collects motion data and trains an LSTM model to classify surfaces such as Kankar, Bitumen, and Concrete roads, as well as speed breakers. The dataset can also help detect rash driving, enabling real-time safety alerts. 🚀🏍️
 
 ---
 
 ## Statement
 
-Create an Android App that captures the readings from motion sensors (accelerometer and gyroscope) in an android phone. Build a dataset using this application that contains the motion characteristics of an average person driving a two-wheeler. Build a LSTM classifier that takes any 3 second sample as input and classifies it as Kankar Road, Bitumen Road, Concrete Road, Single Speed Breaker and Multiple Speed Breakers.
+Create an Android App that captures readings from motion sensors (accelerometer and gyroscope) on an Android phone. Build a dataset using this application that contains the motion characteristics of an average person driving a two-wheeler. Build an LSTM classifier that takes any 3-second sample as input and classifies it as Kankar Road, Bitumen Road, Concrete Road, Single Speed Breaker, and Multiple Speed Breakers.
 
 **_Bonus:_** Can we use this dataset to generate alerts when a person is rash driving?
 
@@ -39,10 +39,7 @@ Create an Android App that captures the readings from motion sensors (accelerome
 
 ## Steps to do
 
-###### _(Click to Expand)_
-
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;"> 1. Dataset Strategy</summary>
+### 1. Dataset Strategy
 
 **_App Development with MIT App Inventor to Capture Sensor Data_**
 
@@ -54,18 +51,13 @@ We need an Android app to capture and save motion sensor readings. Use MIT App I
 - Add Sensors: Add accelerometer and gyroscope components.
 - Design the Interface: Create buttons for actions like “Start Recording” and “Stop Recording.”
 - Save Data: Use the TinyDB or File component to save sensor data locally in CSV format.
-- Export Data: Add functionality to send the file to your computer using email or Google Drive or do it manually.
+- Export Data: Add functionality to send the file to your computer using email or Google Drive, or do it manually.
 
 We can use MIT App Inventor for this part.
 
-</details>
-
 ---
 
----
-
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">2. Data Collection & Compilation</summary>
+### 2. Data Collection & Compilation
 
 **Prepare Your Environment:**
 
@@ -77,29 +69,19 @@ We can use MIT App Inventor for this part.
 - Start the app and record sensor readings while driving.
 - Manually label the data or use a consistent annotation process during collection.
 
-</details>
-
 ---
 
----
-
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">3. Dataset Labelling and Pre-processing</summary>
+### 3. Dataset Labeling and Pre-processing
 
 - Label the sensor readings with their corresponding road type or event (e.g., speed breaker).
 - Pre-process the data:
   - Normalize sensor readings to bring them to the same scale.
-  - Segment the data into 200 to 300 rows windows.
+  - Segment the data into 200 to 300-row windows.
   - Compute useful features (e.g., mean, variance, FFT of the signals).
 
-</details>
-
 ---
 
----
-
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">4. Model Architecture</summary>
+### 4. Model Architecture
 
 - Use an **LSTM (Long Short-Term Memory)** network because it excels in time-series data.
 - Basic architecture:
@@ -107,39 +89,22 @@ We can use MIT App Inventor for this part.
   - LSTM layers: Extract temporal patterns.
   - Dense layer: Classifies data into the 5 categories.
 
-</details>
-
 ---
 
----
-
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">5. Model Training</summary>
+### 5. Model Training
 
 - Train the LSTM on your dataset with appropriate train-validation splits.
 - Use metrics like accuracy and F1-score to evaluate performance.
 
-</details>
-
 ---
 
----
-
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">6. Model Optimization & Comparison</summary>
+### 6. Model Optimization & Comparison
 
 - Experiment with hyperparameters (e.g., learning rate, number of LSTM layers).
 - Compare models with varying feature sets and pre-processing techniques.
 - Add dropout layers to prevent overfitting.
 
-</details>
-
 ---
-
----
-
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">7. Bonus Evaluation</summary>
 
 ### **6\. Bonus Task: Rash Driving Alert**
 
@@ -162,16 +127,11 @@ def detect_rash_driving(row):
     return "Normal"
 ```
 
-</details>
-
 ---
 
----
+### 8. Model Chart Review
 
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">8. Model Chart Review</summary>
-
-# This is the report for Models That have been Made using these Datasets
+This is the report for Models That have been made using these Datasets
 
 ## First Iteration
 
@@ -195,8 +155,8 @@ history = model.fit(X_train, y_train, epochs=30, batch_size=32, validation_data=
 
 ### Table of Results
 
-|             Model Name             | Accuracy |                                 Accuracy Curve                                  |                                  Confusion Matrix                                   |
-| :--------------------------------: | :------: | :-----------------------------------------------------------------------------: | :---------------------------------------------------------------------------------: |
+|             Model Name             | Accuracy |                                                          Accuracy Curve                                                           |                                                           Confusion Matrix                                                            |
+| :--------------------------------: | :------: | :-------------------------------------------------------------------------------------------------------------------------------: | :-----------------------------------------------------------------------------------------------------------------------------------: |
 | **Model_Architecture(CS200-E).h5** |   77%    | ![Accuracy Curve](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Acc_Curve_Harshit_Preprocessed_Data-CS200E.png) | ![Confusion Matrix](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Conf_Matrix_Harshit_Preprocessed_Data-CS200E.png) |
 | **Model_Architecture(CS200-U).h5** |   90%    | ![Accuracy Curve](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Acc_Curve_Harshit_Preprocessed_Data-CS200U.png) | ![Confusion Matrix](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Conf_Matrix_Harshit_Preprocessed_Data-CS200U.png) |
 | **Model_Architecture(CS250-E).h5** |   64%    | ![Accuracy Curve](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Acc_Curve_Harshit_Preprocessed_Data-CS250E.png) | ![Confusion Matrix](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Conf_Matrix_Harshit_Preprocessed_Data-CS250E.png) |
@@ -247,24 +207,10 @@ history = model.fit(
 
 ### Table of Results
 
-|              Model Name              | Accuracy |                                   Accuracy Curve                                   |                                    Confusion Matrix                                    |
-| :----------------------------------: | :------: | :--------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------: |
+|              Model Name              | Accuracy |                                                            Accuracy Curve                                                            |                                                             Confusion Matrix                                                             |
+| :----------------------------------: | :------: | :----------------------------------------------------------------------------------------------------------------------------------: | :--------------------------------------------------------------------------------------------------------------------------------------: |
 | **Model_Architecture(CS200-U)CB.h5** |    81    | ![Accuracy Curve](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Acc_Curve_Harshit_Preprocessed_Data-CS200U-CB.png) | ![Confusion Matrix](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Conf_Matrix_Harshit_Preprocessed_Data-CS200U-CB.png) |
 | **Model_Architecture(CS250-U)CB.h5** |    85    | ![Accuracy Curve](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Acc_Curve_Harshit_Preprocessed_Data-CS250U-CB.png) | ![Confusion Matrix](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Conf_Matrix_Harshit_Preprocessed_Data-CS250U-CB.png) |
 | **Model_Architecture(CS300-U)CB.h5** |    81    | ![Accuracy Curve](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Acc_Curve_Harshit_Preprocessed_Data-CS300U-CB.png) | ![Confusion Matrix](/05%20Model%20Architecture/Harshit's%20Architecture/result_imgs/Conf_Matrix_Harshit_Preprocessed_Data-CS300U-CB.png) |
-
-
-</details>
-
----
-
----
-
-<details>
-  <summary  style="font-size: 15px; font-weight: bold; display: flex; justify-content: center;">9. Model Chart Submission</summary>
-Comming Soon
-</details>
-
----
 
 ---
